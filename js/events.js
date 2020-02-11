@@ -1,6 +1,6 @@
 var url = new URL(window.location.href);
 var listDiv = document.getElementById('list');
-var fetch_gps_url = "https://www.mks-software.de/suff-api/get_events_by_pos.php";
+var fetch_gps_url = "https://www.party-spot.de/api/get_events_by_pos.php";
 
 var city = url.searchParams.get("city");
 
