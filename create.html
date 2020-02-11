@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Erstelle Event</title>
+    <link rel="stylesheet" href="css/create.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div class="header">
+            <h1>Event erstellen</h1>
+            <p>Nur für authorisierte Mods</p>
+        </div>
+        <form autocomplete="on">
+            <fieldset>
+                <legend>Event Informationen</legend>
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" maxlength="255" autocomplete="off">
+                <label for="description">Beschreibung:</label>
+                <textarea name="description" id="description" cols="30" rows="10" autocomplete="off"></textarea>
+                <label for="city">Stadt:</label>
+                <input type="text" name="city" id="city" maxlength="255">
+                <label for="location">Location:</label>
+                <input type="text" name="location" id="location" maxlength="255" autocomplete="off">
+                <label for="latitude">Breitengrad/Latitude:</label>
+                <input type="text" name="latitude" id="latitude" placeholder="53.839797" autocomplete="off">
+                <label for="longitude">Längengrad/Longitude:</label>
+                <input type="text" name="longitude" id="longitude" placeholder="27.934762" autocomplete="off">
+                <label for="date">Datum:</label>
+                <input type="date" name="date" id="date">
+                <label for="time">Zeit:</label>
+                <input type="time" name="time" id="time">
+            </fieldset>
+            <fieldset>
+                <legend>Authorisierung</legend>
+                <label for="code">Code:</label>
+                <input type="password" name="code" id="code" autocomplete="off">
+            </fieldset>
+            <input type="submit" value="Erstellen">
+            <input type="reset" value="Zurücksetzen">
+        </form>
+    </div>
+</body>
+</html>
