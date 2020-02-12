@@ -4,7 +4,7 @@ class Event{
 
     //config
     private $distance_const = 111120; // m
-    private $distance = 5000; // in m
+    private $distance = 25000; // in m
 
     // database connection and table name
     private $conn;
@@ -42,7 +42,7 @@ class Event{
     public function create(){
 
         // insert query
-        $query = "INSERT INTO " . $this->table_name . "
+        $query = "INSERT INTO " . $this->table . "
                 SET
                     name = :name,
                     description = :description,
@@ -71,8 +71,8 @@ class Event{
         // bind the values
         $stmt->bindParam(':name', $this->name);
         $stmt->bindParam(':description', $this->description);
-        $stmt->bindParam(':city', $this->pub_name);
-        $stmt->bindParam(':location', $this->city);
+        $stmt->bindParam(':city', $this->city);
+        $stmt->bindParam(':location', $this->location);
         $stmt->bindParam(':latitude', $this->lat);
         $stmt->bindParam(':longitude', $this->long);
         $stmt->bindParam(':date', $this->date);

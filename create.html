@@ -13,7 +13,7 @@
             <h1>Event erstellen</h1>
             <p>Nur für authorisierte Mods</p>
         </div>
-        <form autocomplete="on">
+        <form id="form" autocomplete="on">
             <fieldset>
                 <legend>Event Informationen</legend>
                 <label for="name">Name:</label>
@@ -38,6 +38,7 @@
                 <label for="code">Code:</label>
                 <input type="password" name="code" id="code" autocomplete="off">
             </fieldset>
+            <p id="output"></p>
             <input type="submit" value="Erstellen">
             <input type="reset" value="Zurücksetzen">
         </form>
