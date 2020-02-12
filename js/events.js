@@ -1,10 +1,12 @@
 var url = new URL(window.location.href);
-var listDiv = document.getElementById('list');
-var fetch_gps_url = "https://www.party-spot.de/api/get_events_by_pos.php";
+var fetch_gps_url = "api/get_events_by_pos.php";
+var fetch_city_url = "api/get_events_by_city.php"
 
 var city = url.searchParams.get("city");
 
-var events;
+
+const content = document.querySelector('#content');
+const loader = document.querySelector('#loader-card');
 
 
 function eventsByGPS() {
@@ -30,6 +32,11 @@ function eventsByGPS() {
         }).then(res => res.json())
         .then(response => {
             console.log('Success:', JSON.stringify(response));
+            if (response.error) {
+
+            } else {
+                showEvents(response.events);
+            }
         })
         
     }
@@ -62,6 +69,47 @@ function eventsByGPS() {
 
 function eventsByCity() {
     
+}
+
+function showEvents(events) {
+    for (let i = 0; i < events.length; i++) {
+        const event = events[i];
+        var card = document.createElement('a');
+        var headline = document.createElement('h1');
+        var location_node = document.createElement('div');
+        var distance = document.createElement('h4');
+        var loc_name = document.createElement('h3');
+        var date = document.createElement('h2');
+        var time = document.createElement('i');
+        var text = document.createElement('p');
+        card.classList.add('card');
+        headline.classList.add('headline');
+        location_node.classList.add('location');
+        distance.classList.add('distance');
+        loc_name.classList.add('name');
+        date.classList.add('date');
+        time.classList.add('time');
+        text.classList.add('text');
+
+        headline.innerText = event.name;
+        distance.innerText = '12km';
+        loc_name.innerText = event.location;
+        date.innerText = event.date;
+        time.innerText = event.time;
+        text.innerText = event.description;
+
+        location_node.appendChild(distance);
+        location_node.appendChild(loc_name);
+        date.appendChild(time);
+
+        card.appendChild(headline);
+        card.appendChild(location_node);
+        card.appendChild(date);
+        card.appendChild(text);
+
+        content.insertBefore(card, loader);
+    }
+    content.removeChild(loader);
 }
 
 
