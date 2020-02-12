@@ -24,7 +24,7 @@ function calcDistance(latitude, longitude) {
 
     var distance = Math.sqrt(Math.pow(distanceLatInMeter, 2) + Math.pow(distanceLongInMeter, 2));
 
-    return Math.round(distance);
+    return Math.round((distance / 1000));
 }
 
 function eventsByGPS() {
