@@ -1,17 +1,36 @@
 var url = new URL(window.location.href);
 var fetch_gps_url = "api/get_events_by_pos.php";
 var fetch_city_url = "api/get_events_by_city.php"
+var distance_const = 111120;
 
 var city = url.searchParams.get("city");
+var last_position = 'unknown';
 
 
 const content = document.querySelector('#content');
 const loader = document.querySelector('#loader-card');
 
 
+function calcDistance(latitude, longitude) {
+    
+    var latInMeter = distance_const;
+    var longInMeter = distance_const * Math.cos(last_position.coords.latitude * Math.PI / 180);
+
+    var distanceLat = Math.abs(latitude - last_position.coords.latitude);
+    var distanceLong = Math.abs(longitude - last_position.coords.longitude);
+
+    var distanceLatInMeter = distanceLat * latInMeter;
+    var distanceLongInMeter = distanceLong * longInMeter;
+
+    var distance = Math.sqrt(Math.pow(distanceLatInMeter, 2) + Math.pow(distanceLongInMeter, 2));
+
+    return Math.round(distance);
+}
+
 function eventsByGPS() {
     
     function fetchByGPS(position) {
+        last_position = position;
 
         const data = {
             user_lat: position.coords.latitude,
@@ -94,7 +113,9 @@ function showEvents(events) {
         var date_obj = new Date(event.date);
 
         headline.innerText = event.name;
-        distance.innerText = '12km';
+        if (last_position != 'unknown') {
+            distance.innerText = calcDistance(event.latitude, event.longitude) + 'km';
+        }
         loc_name.innerText = event.location;
         date.innerText = date_obj.getDate() + '.' + (date_obj.getMonth() + 1) + '. ';
         time.innerText = event.time.substr(0, 5) + ' Uhr';
