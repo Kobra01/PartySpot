@@ -91,11 +91,14 @@ function showEvents(events) {
         time.classList.add('time');
         text.classList.add('text');
 
+        var date_obj = new Date(event.date);
+        var time_obj = new Date(event.time);
+
         headline.innerText = event.name;
         distance.innerText = '12km';
         loc_name.innerText = event.location;
-        date.innerText = event.date;
-        time.innerText = event.time;
+        date.innerText = date_obj.getDate() + '.' + (date_obj.getMonth() + 1) + '. ';
+        time.innerText = time_obj.getHours() + ':' + time_obj.getMinutes() + ' Uhr';
         text.innerText = event.description;
 
         location_node.appendChild(distance);
