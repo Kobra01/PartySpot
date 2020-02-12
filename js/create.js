@@ -49,7 +49,7 @@ function onSubmit(e) {
     const data = {
         name: name.value,
         description: description.value,
-        city: city.value,
+        city: city.value.toLowerCase(),
         location: location_text.value,
         lat: latitude.value,
         long: longitude.value,
