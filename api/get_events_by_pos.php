@@ -33,18 +33,19 @@ $eventObject = new Event($db);
 $data = json_decode(file_get_contents("php://input"));
 
 // check if data is set
-if (!isset($data->city)) {
+if (!isset($data->user_lat) or !isset($data->user_long)) {
 
     // message if value missed
     http_response_code(400);
-    echo json_encode(array("error" => TRUE, "message" => "city is missing."));
+    echo json_encode(array("error" => TRUE, "message" => "user position is missing."));
 
     die();
 }
 
-$eventObject->city = $data->city;
+$eventObject->user_lat = $data->user_lat;
+$eventObject->user_long = $data->user_long;
 
-if(!$eventObject->getByCity()){
+if(!$eventObject->getNearEvents()){
     
     http_response_code(400);
     echo json_encode(array("error" => TRUE, "message" => "Unable to get events."));
@@ -57,5 +58,8 @@ echo json_encode(array(
     "error" => FALSE,
     "message" => "Found events.",
     "events" => utf8ize($eventObject->multi_events)));
+
+// Debug
+// echo json_last_error_msg();
 
 ?>
