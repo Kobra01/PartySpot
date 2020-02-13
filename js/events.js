@@ -54,6 +54,7 @@ function eventsByGPS() {
             if (response.error) {
 
             } else {
+                sessionStorage.setItem('events', JSON.stringify(response.events));
                 showEvents(response.events);
             }
         })
@@ -112,7 +113,7 @@ function showEvents(events) {
 
         var date_obj = new Date(event.date);
 
-        card.href = 'event.html?id=' + event.id;
+        card.href = 'event.html';
         headline.innerText = event.name;
         if (last_position != 'unknown') {
             distance.innerText = calcDistance(event.latitude, event.longitude) + 'km';
