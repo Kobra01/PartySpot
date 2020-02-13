@@ -4,8 +4,7 @@ var fetch_city_url = "api/get_events_by_city.php"
 var distance_const = 111120;
 
 var city = url.searchParams.get("city");
-var distance_param = 25;
-distance_param = url.searchParams.get("d");
+var distance_param = url.searchParams.get("d");
 var last_position = 'unknown';
 
 
@@ -146,6 +145,9 @@ function showSettings() {
     setting.classList.add('btn');
     btn_info.classList.add('info')
     if (!city) {
+        if (!distance_param) {
+            distance_param = '25';
+        }
         btn_info.innerText = 'Distanz: ca. ' + distance_param + 'km';
     } else {
         btn_info.innerText = 'Stadt: ' + city.charAt(0).toUpperCase() + city.slice(1);
