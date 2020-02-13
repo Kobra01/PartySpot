@@ -140,7 +140,7 @@ function showEvents(events) {
     content.removeChild(loader);
 }
 
-showSettings() {
+function showSettings() {
     var setting = document.createElement('button');
     var btn_info = document.createElement('p');
     setting.classList.add('btn');
@@ -155,6 +155,7 @@ showSettings() {
 }
 
 
+showSettings();
 if (!city) {
     // gps option chosen
     console.log("GPS");
