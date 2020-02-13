@@ -90,7 +90,7 @@ class Event{
 
     // CRUD -> Read
 
-    // get objects in a specific area
+    // get events in a specific area
     public function getNearEvents(){
 
         $latitudeInMeter = $this->distance_const;
@@ -112,7 +112,9 @@ class Event{
                     AND
                         longitude BETWEEN :min_long AND :max_long
                     AND
-                        e.creator = c.id';
+                        e.creator = c.id
+                    ORDER BY
+                        e.date, e.time';
 
         // prepare the query
         $stmt = $this->conn->prepare($query);
@@ -134,16 +136,50 @@ class Event{
         return true;
     }
 
-    // get details of object
-    public function getObjectDetails(){
+    // get objects by city
+    public function getByCity(){
 
         // Create Query
         $query = '  SELECT
-                        *
+                        e.id, e.name, e.description, e.city, e.location, e.latitude, e.longitude, e.date, e.time, c.name as creator
                     FROM
-                        ' . $this->table . '
+                        ' . $this->table.' e, ' . $this->table_creator.' c
                     WHERE
-                        id = :object_id';
+                        e.city = :city
+                    AND
+                        e.creator = c.id
+                    ORDER BY
+                        e.date, e.time';
+
+        // prepare the query
+        $stmt = $this->conn->prepare($query);
+
+        // bind the values
+        $stmt->bindParam(':city', $this->city);
+
+        // exit if execute failed
+        if(!$stmt->execute()){
+            return false;
+        }
+
+        // get record details / values
+        $this->multi_events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        return true;
+    }
+
+    // get details of event
+    public function getDetails(){
+
+        // Create Query
+        $query = '  SELECT
+                        e.id, e.name, e.description, e.city, e.location, e.latitude, e.longitude, e.date, e.time, c.name as creator
+                    FROM
+                        ' . $this->table.' e, ' . $this->table_creator.' c
+                    WHERE
+                        e.id = :event_id
+                    AND
+                        e.creator = c.id';
 
         // prepare the query
         $stmt = $this->conn->prepare($query);
@@ -152,7 +188,7 @@ class Event{
         $this->id=htmlspecialchars(strip_tags($this->id));
 
         // bind the values
-        $stmt->bindParam(':object_id', $this->id);
+        $stmt->bindParam(':event_id', $this->id);
 
         // exit if execute failed
         if(!$stmt->execute()){
@@ -160,7 +196,7 @@ class Event{
         }
 
         // get record details / values
-        $this->entireObject = $stmt->fetch(PDO::FETCH_ASSOC);
+        $this->entireEvent = $stmt->fetch(PDO::FETCH_ASSOC);
 
         return true;
     }
