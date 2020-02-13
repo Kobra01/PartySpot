@@ -148,12 +148,11 @@ function showSettings() {
     if (!city) {
         btn_info.innerText = 'Distanz: ca. ' + distance_param + 'km';
     } else {
-        btn_info.innerText = 'Stadt: ' + city;
+        btn_info.innerText = 'Stadt: ' + city.charAt(0).toUpperCase() + city.slice(1);
     }
     setting.appendChild(btn_info);
     settings_div.appendChild(setting);
 }
-
 
 showSettings();
 if (!city) {
