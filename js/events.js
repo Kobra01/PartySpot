@@ -4,11 +4,14 @@ var fetch_city_url = "api/get_events_by_city.php"
 var distance_const = 111120;
 
 var city = url.searchParams.get("city");
+var distance_param = 25;
+distance_param = url.searchParams.get("d");
 var last_position = 'unknown';
 
 
 const content = document.querySelector('#content');
 const loader = document.querySelector('#loader-card');
+const settings_div = document.querySelector('#settings');
 
 
 function calcDistance(latitude, longitude) {
@@ -135,6 +138,20 @@ function showEvents(events) {
         content.insertBefore(card, loader);
     }
     content.removeChild(loader);
+}
+
+showSettings() {
+    var setting = document.createElement('button');
+    var btn_info = document.createElement('p');
+    setting.classList.add('btn');
+    btn_info.classList.add('info')
+    if (!city) {
+        btn_info.innerText = 'Distanz: ca. ' + distance_param + 'km';
+    } else {
+        btn_info.innerText = 'Stadt: ' + city;
+    }
+    setting.appendChild(btn_info);
+    settings_div.appendChild(setting);
 }
 
 
