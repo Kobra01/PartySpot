@@ -140,7 +140,7 @@ function showEvents(events) {
 
         var date_obj = new Date(event.date);
 
-        card.href = 'event.html';
+        card.href = 'event.html?id=' + event.id;
         headline.innerText = event.name;
         if (last_position != 'unknown') {
             distance.innerText = calcDistance(event.latitude, event.longitude) + 'km';
