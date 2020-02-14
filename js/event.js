@@ -79,7 +79,7 @@ function showEvent(event) {
     time.innerText = 'um ' + event.time.substr(0, 5) + ' Uhr';
     location_header.innerText = 'Ort:';
     loc_name.innerText = event.location;
-    if (last_position) {
+    if (last_position.coords) {
         distance.innerText = calcDistance(event.latitude, event.longitude) + 'km';
     }
     text.innerText = event.description;
@@ -89,7 +89,7 @@ function showEvent(event) {
     card.appendChild(time);
     card.appendChild(location_header);
     card.appendChild(name);
-    if (last_position) {
+    if (last_position.coords) {
         card.appendChild(location_header);
     }
     card.appendChild(text);
@@ -104,7 +104,7 @@ if (id) {
    fetchEvent(); 
 }
 
-if (last_position) {
+if (last_position.coords) {
     console.log('Position found: ' + JSON.stringify(last_position));
 } else {
     console.log('keine position');
