@@ -33,6 +33,7 @@ function eventsByGPS() {
     
     function fetchByGPS(position) {
         last_position = position;
+        sessionStorage.setItem('last_position', JSON.stringify(position));
 
         const data = {
             user_lat: position.coords.latitude,
@@ -90,7 +91,31 @@ function eventsByGPS() {
 }
 
 function eventsByCity() {
-    
+    const data = {
+        city: city
+    };
+
+    fetch(fetch_city_url, {
+        method: 'POST', // *GET, POST, PUT, DELETE, etc.
+        mode: 'cors', // no-cors, *cors, same-origin
+        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+        credentials: 'same-origin', // include, *same-origin, omit
+        redirect: 'follow', // manual, *follow, error
+        referrer: 'no-referrer', // no-referrer, *client
+        body: JSON.stringify(data), // data can be `string` or {object}
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    }).then(res => res.json())
+    .then(response => {
+        console.log('Success:', JSON.stringify(response));
+        if (response.error) {
+
+        } else {
+            sessionStorage.setItem('events', JSON.stringify(response.events));
+            showEvents(response.events);
+        }
+    })
 }
 
 function showEvents(events) {
@@ -161,4 +186,8 @@ if (!city) {
     // gps option chosen
     console.log("GPS");
     eventsByGPS();
-} else {}
+} else {
+    // city option chosen
+    console.log("Stadt: " + city);
+    eventsByCity();
+}
