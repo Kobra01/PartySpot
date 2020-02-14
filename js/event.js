@@ -88,9 +88,9 @@ function showEvent(event) {
     card.appendChild(headline);
     card.appendChild(time);
     card.appendChild(location_header);
-    card.appendChild(name);
+    card.appendChild(loc_name);
     if (last_position.coords) {
-        card.appendChild(location_header);
+        card.appendChild(distance);
     }
     card.appendChild(text);
 
