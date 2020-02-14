@@ -49,6 +49,7 @@ function fetchEvent() {
 
         } else {
             showEvent(response.event);
+            showFooter(response.event);
         }
     })
 }
@@ -98,7 +99,7 @@ function showEvent(event) {
     content.removeChild(loader);
 }
 
-showFooter(event) {
+function showFooter(event) {
     // Whatsapp Share
 
 
