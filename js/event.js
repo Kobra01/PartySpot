@@ -101,6 +101,31 @@ function showEvent(event) {
 
 function showFooter(event) {
     // Whatsapp Share
+    var wa = document.createElement('a');
+    var wa_icon = document.createElement('img');
+    var wa_text = document.createElement('p');
+    wa.classList.add('btn');
+    wa_text.classList.add('info');
+    wa_text.classList.add('with-icon');
+
+    wa_icon.src = 'img/whatsapp-glyph-black.svg';
+    wa_icon.alt = 'WhatsApp Logo';
+    wa_text.innerText = 'WhatsApp';
+
+    var message_text = 'Part-Spot.de%0A' + 'Am ' + date_obj.getDate() + '.' + (date_obj.getMonth() + 1) + '. ' + event.name + '%0A' + url;
+    wa.href = 'https://wa.me/?text=' + encodeURI(message_text);
+
+    wa.appendChild(wa_icon);
+    wa.appendChild(wa_text);
+    footer.appendChild(wa);
+
+    var date_obj = new Date(event.date);
+
+    const shareData = {
+        title: 'Party-Spot.de',
+        text: 'Am ' + date_obj.getDate() + '.' + (date_obj.getMonth() + 1) + '. ' + event.name,
+        url: url,
+    }
 
 
     // Share general
