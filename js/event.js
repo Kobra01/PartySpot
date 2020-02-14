@@ -98,6 +98,43 @@ function showEvent(event) {
     content.removeChild(loader);
 }
 
+showFooter(event) {
+    // Whatsapp Share
+
+
+    // Share general
+    var share = document.createElement('button');
+    var share_icon = document.createElement('img');
+    var share_text = document.createElement('p');
+    setting.classList.add('btn');
+    share_text.classList.add('info');
+
+    share_icon.src = 'img/ic_share_48px.svg';
+    share_icon.alt = 'Share Icon';
+    share_text = 'Teilen';
+
+    share.appendChild(share_icon);
+    share.appendChild(share_text);
+    footer.appendChild(share);
+
+    var date_obj = new Date(event.date);
+
+    const shareData = {
+        title: 'Party-Spot.de',
+        text: 'Am ' + date_obj.getDate() + '.' + (date_obj.getMonth() + 1) + '. ' + event.name,
+        url: url,
+    }
+
+    share.addEventListener('click', async () => {
+        try {
+          await navigator.share(shareData)
+        } catch(err) {
+          console.log('Error: ' + e);
+        }
+        console.log('Shared successfully');
+    });
+}
+
 
 
 if (id) {
