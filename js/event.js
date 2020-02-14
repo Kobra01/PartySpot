@@ -48,12 +48,55 @@ function fetchEvent() {
         if (response.error) {
 
         } else {
-            // showEvent(response.event);
+            showEvent(response.event);
         }
     })
 }
 
+function showEvent(event) {
+    var card = document.createElement('div');
+    var date = document.createElement('h2');
+    var headline = document.createElement('h1');
+    var time = document.createElement('h2');
+    var location_header = document.createElement('h3');
+    var loc_name = document.createElement('h3');
+    var distance = document.createElement('h4');
+    var text = document.createElement('p');
+    card.classList.add('card');
+    date.classList.add('date');
+    headline.classList.add('headline');
+    time.classList.add('time');
+    location_header.classList.add('location-header');
+    loc_name.classList.add('name');
+    distance.classList.add('distance');
+    text.classList.add('text');
 
+    var date_obj = new Date(event.date);
+
+
+    date.innerText = 'Am ' + date_obj.getDate() + '.' + (date_obj.getMonth() + 1) + '.';
+    headline.innerText = event.name;
+    time.innerText = 'um ' + event.time.substr(0, 5) + ' Uhr';
+    location_header.innerText = 'Ort:';
+    loc_name.innerText = event.location;
+    if (last_position) {
+        distance.innerText = calcDistance(event.latitude, event.longitude) + 'km';
+    }
+    text.innerText = event.description;
+
+    card.appendChild(date);
+    card.appendChild(headline);
+    card.appendChild(time);
+    card.appendChild(location_header);
+    card.appendChild(name);
+    if (last_position) {
+        card.appendChild(location_header);
+    }
+    card.appendChild(text);
+
+    content.insertBefore(card, loader);
+    content.removeChild(loader);
+}
 
 
 
