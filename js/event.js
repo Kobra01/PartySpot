@@ -112,7 +112,7 @@ function showFooter(event) {
 
     share_icon.src = 'img/ic_share_48px.svg';
     share_icon.alt = 'Share Icon';
-    share_text = 'Teilen';
+    share_text.innerText = 'Teilen';
 
     share.appendChild(share_icon);
     share.appendChild(share_text);
