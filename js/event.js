@@ -107,7 +107,7 @@ function showFooter(event) {
     var share = document.createElement('button');
     var share_icon = document.createElement('img');
     var share_text = document.createElement('p');
-    setting.classList.add('btn');
+    share.classList.add('btn');
     share_text.classList.add('info');
 
     share_icon.src = 'img/ic_share_48px.svg';
