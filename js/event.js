@@ -3,7 +3,7 @@ var fetch_url = "api/get_event_details.php";
 var distance_const = 111120;
 
 var id = url.searchParams.get("id");
-var last_position = sessionStorage.getItem('last_position');
+var last_position = JSON.parse(sessionStorage.getItem('last_position'));
 
 const content = document.querySelector('#content');
 const loader = document.querySelector('#loader-card');
@@ -55,12 +55,14 @@ function fetchEvent() {
 
 
 
+
+
 if (id) {
    fetchEvent(); 
 }
 
 if (last_position) {
-    console.log('Position found: ' + last_position);
+    console.log('Position found: ' + JSON.stringify(last_position));
 } else {
     console.log('keine position');
 }
