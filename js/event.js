@@ -109,6 +109,7 @@ function showFooter(event) {
     var share_text = document.createElement('p');
     share.classList.add('btn');
     share_text.classList.add('info');
+    share_text.classList.add('with-icon');
 
     share_icon.src = 'img/ic_share_48px.svg';
     share_icon.alt = 'Share Icon';
@@ -130,7 +131,7 @@ function showFooter(event) {
         try {
           await navigator.share(shareData)
         } catch(err) {
-          console.log('Error: ' + e);
+          console.log('Error: ' + err);
         }
         console.log('Shared successfully');
     });
