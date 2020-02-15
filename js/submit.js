@@ -1,17 +1,16 @@
-const url = 'api/create_event.php';
+const url = 'api/submit_event.php';
 
 const content = document.querySelector('#wrapper');
 const output = document.querySelector('#output');
 const form = document.querySelector('#form');
 const name = document.querySelector('#name');
-const description = document.querySelector('#description');
-const city = document.querySelector('#city');
 const location_text = document.querySelector('#location');
-const latitude = document.querySelector('#latitude');
-const longitude = document.querySelector('#longitude');
+const city = document.querySelector('#city');
 const date = document.querySelector('#date');
 const time = document.querySelector('#time');
-const code = document.querySelector('#code');
+const description = document.querySelector('#description');
+const creator = document.querySelector('#creator_name');
+const contact = document.querySelector('#contact');
 
 form.addEventListener('submit', onSubmit);
 
@@ -24,14 +23,13 @@ function onSubmit(e) {
 
     if (
         name.value === '' ||
-        description.value === '' ||
-        city.value === '' ||
         location_text.value === '' ||
-        latitude.value === '' ||
-        longitude.value === '' ||
+        city.value === '' ||
         date.value === '' ||
         time.value === '' ||
-        code.value === ''
+        description.value === '' ||
+        creator.value === '' ||
+        contact.value === ''
     ) {
         console.log('fields are missing');
 
@@ -43,16 +41,21 @@ function onSubmit(e) {
         return;
     }
 
+    var nl = '<br>';
+    var email_text = 'Ein neues Event für Party-Spot.de wurde eingereicht.' + nl +
+                    'Bitte schnellstmöglich prüfen und eintragen!' + nl +
+                    nl +
+                    name.value + nl +
+                    'Ort: ' + location_text.value + nl +
+                    'Stadt: ' + city.value + nl +
+                    'Datum: ' + date.value + nl +
+                    'Zeit: ' + time.value + nl +
+                    'Beschreibung: ' + nl + description.value + nl +
+                    'Eingereicht von: ' + creator.value + nl +
+                    'Kontakt: ' + contact.value + nl;
+
     const data = {
-        name: name.value,
-        description: description.value,
-        city: city.value.toLowerCase(),
-        location: location_text.value,
-        lat: latitude.value,
-        long: longitude.value,
-        date: date.value,
-        time: time.value,
-        code: code.value
+        content: email_text
     };
 
     fetch(url, {
@@ -90,12 +93,11 @@ function onSubmit(e) {
     });
 
     name.value = '';
-    description.value = '';
-    city.value = '';
     location_text.value = '';
-    latitude.value = '';
-    longitude.value = '';
+    city.value = '';
     date.value = '';
     time.value = '';
-    code.value = '';
+    description.value = '';
+    creator.value = '';
+    contact.value = '';
 }

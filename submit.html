@@ -13,7 +13,7 @@
             <h1>Party einreichen</h1>
             <p>Teile uns mit, wo etwas stattfindet</p>
         </div>
-        <form autocomplete="on">
+        <form id="form" autocomplete="on">
             <fieldset>
                 <legend>Party Informationen</legend>
                 <label for="name">Was:</label>
@@ -38,9 +38,12 @@
                 <br>
                 <p>Wir Kontaktieren dich nur im Falle von Unklarheiten</p>
             </fieldset>
+            <p id="output"></p>
             <input type="submit" value="Einreichen">
             <input type="reset" value="Zurücksetzen">
         </form>
     </div>
+    
+    <script src="js/submit.js" async defer></script>
 </body>
 </html>

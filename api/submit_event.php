@@ -43,12 +43,12 @@ if (!$mailer->sendSubmitMail()) {
 
     // message if unable to send email
     http_response_code(400);
-    echo json_encode(array("error" => TRUE, "message" => "Unable to send email."));
+    echo json_encode(array("error" => TRUE, "message" => "Unable to send submit."));
     die();
 }
 
 // set response code & answer
 http_response_code(201);
-echo json_encode(array("error" => FALSE, "message" => "Email was sent."));
+echo json_encode(array("error" => FALSE, "message" => "Thanks for submitting."));
 
 ?>
