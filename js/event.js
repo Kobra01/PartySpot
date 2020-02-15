@@ -158,7 +158,7 @@ function showFooter(event) {
 
 
 
-if (last_position.coords != null) {
+if (last_position != null && last_position != 'undefined') {
     console.log('Position found: ' + JSON.stringify(last_position));
 } else {
     console.log('keine position');
