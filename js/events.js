@@ -187,13 +187,16 @@ function showSettings() {
             distance_param = '25';
         }
         btn_info.innerText = 'Distanz: ca. ' + distance_param + 'km';
-        setting.addEventListener('click', distanceChanging())
     } else {
         btn_info.innerText = 'Stadt: ' + city.charAt(0).toUpperCase() + city.slice(1);
-        setting.addEventListener('click', cityChanging())
     }
     setting.appendChild(btn_info);
     settings_div.appendChild(setting);
+    if (!city) {
+        setting.addEventListener('click', distanceChanging())
+    } else {
+        setting.addEventListener('click', cityChanging())
+    }
 }
 
 function distanceChanging() {
@@ -201,7 +204,7 @@ function distanceChanging() {
     distance_select.style.display = "block";
 }
 
-function distanceChanging() {
+function cityChanging() {
     overlay.style.display = "block";
     city_select.style.display = "block";
 }
