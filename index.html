@@ -11,7 +11,7 @@
     <div id="wrapper">
         <img src="img/schwarz-transparent-6000.png" alt="PartySpot" class="logo">
         <p>Wähle deine</p>
-        <a href="events.html?city=berlin" class="cta">STADT</a>
+        <button class="cta" onclick="cityChanging()">STADT</button>
         <p>oder nutze deinen</p>
         <a href="events.html" class="cta">STANDORT</a>
     </div>
@@ -19,5 +19,22 @@
     <div class="footer">
         <a href="submit.html"><p> Deine Party fehlt?<br>Reiche sie <i>hier</i> ein.</p></a>
     </div>
+
+    <!-- Overlay -->
+    <div id="overlay" onclick="closeOverlay()">
+    </div>
+    
+    <div class="overlay-card" id="city-select">
+        <form action="events.html">
+            <h3>Stadt:</h3>
+            <select name="city" id="city">
+                <option value="berlin">Berlin</option>
+            </select>
+            <input type="submit" value="Suchen">
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/start.js" async defer></script>
 </body>
 </html>
