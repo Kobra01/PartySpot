@@ -71,7 +71,7 @@ div {
     filter: invert(1);
 }
 
-.card {
+.card, .overlay-card {
     color: black;
     background-color: white;
     margin: 10px 10px 20px;
@@ -136,7 +136,7 @@ div {
 
 #overlay {
     position: fixed; /* Sit on top of the page content */
-    display: none; /* Hidden by default */
+    display: block; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
     top: 0;
@@ -148,12 +148,16 @@ div {
     cursor: pointer; /* Add a pointer on hover */
 }
 
-#distance-select, #city-select {
-    display: none;
-    position: relative;
+.overlay-card {
+    padding-right: 80px;
+    display: block;
+    position: fixed;
+    width: fit-content;
+    height: fit-content;
     top: 50%;
-    transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
     z-index: 3;
 }
 
