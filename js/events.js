@@ -33,7 +33,17 @@ function eventsByGPS() {
     
     function fetchByGPS(position) {
         last_position = position;
-        sessionStorage.setItem('last_position', JSON.stringify(position));
+        sessionStorage.setItem('last_position', JSON.stringify({
+            coords: {
+                accuracy: position.coords.accuracy,
+                altitude: position.coords.altitude,
+                altitudeAccuracy: position.coords.altitudeAccuracy,
+                heading: position.coords.heading,
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+                speed: position.coords.speed,
+            },
+            timestamp: position.timestamp,}));
 
         const data = {
             user_lat: position.coords.latitude,
