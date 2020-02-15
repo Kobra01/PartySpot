@@ -193,9 +193,9 @@ function showSettings() {
     setting.appendChild(btn_info);
     settings_div.appendChild(setting);
     if (!city) {
-        setting.addEventListener('click', distanceChanging())
+        setting.addEventListener('click', distanceChanging)
     } else {
-        setting.addEventListener('click', cityChanging())
+        setting.addEventListener('click', cityChanging)
     }
 }
 
