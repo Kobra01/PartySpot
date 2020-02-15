@@ -15,9 +15,6 @@ body {
     background: var(--main-bg-color);
     height: 100vh;
     width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 p, a, h1, h2, h3, h4, h5, h6, div {
@@ -36,30 +33,35 @@ div {
 #wrapper {
     margin: 8px;
     height: fit-content;
-    padding-bottom: 20%;
 }
 
-h1 {
-    text-align: center;
-    font-weight: bolder;
-    font-size: 3.8em;
-    letter-spacing: .25em;
+.logo {
+    position: absolute;
+    left: 50%;
+    top: 12%;
+    transform: translate(-50%, -25%);
+    -ms-transform: translate(-50%, -25%);
+    height: 192px;
 }
 
-h2 {
-    text-align: center;
-    font-weight: 400;
-    font-size: 1em;
-    letter-spacing: .25em;
-    margin-bottom: 17vh;
+.mid-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+    -ms-transform: translate(-50%, -30%);
+    width: fit-content;
+    height: fit-content;
 }
 
 p {
+    width: fit-content;
+    height: fit-content;
     text-align: center;
     font-weight: 300;
     font-size: 22px;
     letter-spacing: .1em;
-    margin: 6vh auto;
+    margin: 20px auto;
 }
 
 .cta {
@@ -83,15 +85,13 @@ p {
     margin: 0 auto 0 auto;
 }
 
-.logo {
-    height: 256px;
-    margin-left: calc(50% - 128px);
-}
-
 .footer {
-    position: relative;
-    width: 100vw;
+    position: absolute;
     bottom: 0px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    -ms-transform: translate(-50%, 0);
+    width: fit-content;
     height: fit-content;
 }
 
