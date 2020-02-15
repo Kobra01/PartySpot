@@ -27,6 +27,9 @@ class Mailer {
             $this->mailer->addAddress($this->email_max);
             // $this->mailer->addAddress($this->email_finn);
 
+            $this->mailer->CharSet = 'UTF-8';
+            $this->mailer->Encoding = 'base64';
+
             //Content
             $this->mailer->isHTML(true);                                    // Set email format to HTML
             $this->mailer->Subject = 'PS - Neuer Event Vorschlag';
