@@ -1,1 +1,3 @@
 api/config/Database.php
+api/config/Mailer.php
+api/libs/*
