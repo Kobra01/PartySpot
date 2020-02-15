@@ -42,6 +42,10 @@ if (!isset($data->user_lat) or !isset($data->user_long)) {
     die();
 }
 
+if (isset($data->distance) && $data->distance < 61 && $data->distance > 0) {
+    $eventObject->distance = $data->distance * 1000;
+}
+
 $eventObject->user_lat = $data->user_lat;
 $eventObject->user_long = $data->user_long;
 

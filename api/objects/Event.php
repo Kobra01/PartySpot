@@ -4,7 +4,7 @@ class Event{
 
     //config
     private $distance_const = 111120; // m
-    private $distance = 25000; // in m
+    public $distance = 25000; // in m
 
     // database connection and table name
     private $conn;
