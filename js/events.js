@@ -5,6 +5,9 @@ var distance_const = 111120;
 
 var city = url.searchParams.get("city");
 var distance_param = url.searchParams.get("d");
+if (!distance_param) {
+    distance_param = '25';
+}
 var last_position = 'unknown';
 
 
@@ -50,7 +53,8 @@ function eventsByGPS() {
 
         const data = {
             user_lat: position.coords.latitude,
-            user_long: position.coords.longitude
+            user_long: position.coords.longitude,
+            distance: distance_param
         };
 
         fetch(fetch_gps_url, {
@@ -183,9 +187,6 @@ function showSettings() {
     setting.classList.add('btn');
     btn_info.classList.add('info')
     if (!city) {
-        if (!distance_param) {
-            distance_param = '25';
-        }
         btn_info.innerText = 'Distanz: ca. ' + distance_param + 'km';
     } else {
         btn_info.innerText = 'Stadt: ' + city.charAt(0).toUpperCase() + city.slice(1);
