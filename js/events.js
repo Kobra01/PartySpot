@@ -11,6 +11,9 @@ var last_position = 'unknown';
 const content = document.querySelector('#content');
 const loader = document.querySelector('#loader-card');
 const settings_div = document.querySelector('#settings');
+const overlay = document.querySelector('#overlay');
+const distance_select = document.querySelector('#distance-select');
+const city_select = document.querySelector('#city-select');
 
 
 function calcDistance(latitude, longitude) {
@@ -184,11 +187,29 @@ function showSettings() {
             distance_param = '25';
         }
         btn_info.innerText = 'Distanz: ca. ' + distance_param + 'km';
+        setting.addEventListener('click', distanceChanging())
     } else {
         btn_info.innerText = 'Stadt: ' + city.charAt(0).toUpperCase() + city.slice(1);
+        setting.addEventListener('click', cityChanging())
     }
     setting.appendChild(btn_info);
     settings_div.appendChild(setting);
+}
+
+function distanceChanging() {
+    overlay.style.display = "block";
+    distance_select.style.display = "block";
+}
+
+function distanceChanging() {
+    overlay.style.display = "block";
+    city_select.style.display = "block";
+}
+
+function closeOverlay() {
+    distance_select.style.display = "none";
+    city_select.style.display = "none";
+    overlay.style.display = "none";
 }
 
 showSettings();
