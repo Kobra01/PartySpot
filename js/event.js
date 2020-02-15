@@ -114,7 +114,7 @@ function showFooter(event) {
 
     var date_obj = new Date(event.date);
 
-    var message_text = 'Part-Spot.de%0D%0A' + 'Am ' + date_obj.getDate() + '.' + (date_obj.getMonth() + 1) + '. ' + event.name + '%0D%0A' + url;
+    var message_text = 'Am ' + date_obj.getDate() + '.' + (date_obj.getMonth() + 1) + '. *' + event.name + '* -- ' + url;
     wa.href = 'https://wa.me/?text=' + encodeURI(message_text);
 
     wa.appendChild(wa_icon);
