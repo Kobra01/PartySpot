@@ -134,6 +134,74 @@ div {
     font-size: 14px;
 }
 
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: block; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+}
+
+#overlay .card {
+    display: none;
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+}
+
+form input, form select, form textarea { background: #E3E3E3; }
+
+form input[type=submit] {
+    background: var(--main-accent-color);
+    color: #FFFFFF;
+}
+
+form input[type=submit], form input[type=reset] {
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    -webkit-transition: background-color .2s ease-out;
+    transition: background-color .2s ease-out;
+    cursor: pointer;
+    font-size: 14px;
+    outline: 0;
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: uppercase;
+    vertical-align: middle;
+    -webkit-tap-highlight-color: transparent;
+}
+
+form label {
+    display: block;
+    margin: 6px 0px;
+}
+  
+form input, form textarea, form select {
+    display: block;
+    padding: 4px 8px 2px;
+    margin: 12px 6px;
+    border: none;
+    border-bottom: 2px solid #29434e;
+    border-radius: 3px;
+}
+  
+form input:focus, form textarea:focus, form select:focus {
+    outline: none;
+    border: 2px solid var(--main-accent-color);
+}
+
 .loader {
     margin: 10px auto;
     border: 2px solid #f3f3f3; /* Light grey */
