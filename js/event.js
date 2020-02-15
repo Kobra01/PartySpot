@@ -81,7 +81,7 @@ function showEvent(event) {
     location_header.innerText = 'Ort:';
     loc_name.innerText = event.location;
     if (last_position.coords != null) {
-        distance.innerText = calcDistance(event.latitude, event.longitude) + 'km';
+        distance.innerText = 'etwa ' + calcDistance(event.latitude, event.longitude) + 'km entfernt';
     }
     text.innerText = event.description;
 
