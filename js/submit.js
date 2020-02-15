@@ -55,7 +55,7 @@ function onSubmit(e) {
                     'Kontakt: ' + contact.value + nl;
 
     const data = {
-        content: email_text
+        content: encodeURI(email_text)
     };
 
     fetch(url, {
