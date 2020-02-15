@@ -80,7 +80,7 @@ function showEvent(event) {
     time.innerText = 'um ' + event.time.substr(0, 5) + ' Uhr';
     location_header.innerText = 'Ort:';
     loc_name.innerText = event.location;
-    if (last_position.coords) {
+    if (last_position != null) {
         distance.innerText = calcDistance(event.latitude, event.longitude) + 'km';
     }
     text.innerText = event.description;
@@ -90,7 +90,7 @@ function showEvent(event) {
     card.appendChild(time);
     card.appendChild(location_header);
     card.appendChild(loc_name);
-    if (last_position.coords) {
+    if (last_position != null) {
         card.appendChild(distance);
     }
     card.appendChild(text);
@@ -114,7 +114,7 @@ function showFooter(event) {
 
     var date_obj = new Date(event.date);
 
-    var message_text = 'Part-Spot.de%0A' + 'Am ' + date_obj.getDate() + '.' + (date_obj.getMonth() + 1) + '. ' + event.name + '%0A' + url;
+    var message_text = 'Part-Spot.de%0D%0A' + 'Am ' + date_obj.getDate() + '.' + (date_obj.getMonth() + 1) + '. ' + event.name + '%0D%0A' + url;
     wa.href = 'https://wa.me/?text=' + encodeURI(message_text);
 
     wa.appendChild(wa_icon);
@@ -162,7 +162,7 @@ if (id) {
    fetchEvent(); 
 }
 
-if (last_position.coords) {
+if (last_position != null) {
     console.log('Position found: ' + JSON.stringify(last_position));
 } else {
     console.log('keine position');
