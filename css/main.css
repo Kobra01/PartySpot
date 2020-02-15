@@ -136,7 +136,7 @@ div {
 
 #overlay {
     position: fixed; /* Sit on top of the page content */
-    display: block; /* Hidden by default */
+    display: none; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
     top: 0;
@@ -150,7 +150,7 @@ div {
 
 .overlay-card {
     padding-right: 80px;
-    display: block;
+    display: none;
     position: fixed;
     width: fit-content;
     height: fit-content;
