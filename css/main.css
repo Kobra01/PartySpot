@@ -136,7 +136,7 @@ div {
 
 #overlay {
     position: fixed; /* Sit on top of the page content */
-    display: block; /* Hidden by default */
+    display: none; /* Hidden by default */
     width: 100%; /* Full width (cover the whole page) */
     height: 100%; /* Full height (cover the whole page) */
     top: 0;
@@ -148,12 +148,13 @@ div {
     cursor: pointer; /* Add a pointer on hover */
 }
 
-#overlay .card {
+#distance-select, #city-select {
     display: none;
     position: relative;
     top: 50%;
     transform: translate(0, -50%);
     -ms-transform: translate(0, -50%);
+    z-index: 3;
 }
 
 form input, form select, form textarea { background: #E3E3E3; }

@@ -24,23 +24,24 @@
     </div>
 
     <div id="overlay" onclick="closeOverlay()">
-        <div class="card" id="distance-select">
-            <form action="events.html">
-                <h3>Distanz:</h3>
-                <label for="d"> Zwischen 1 - 60 in Kilometern</label>
-                <input type="number" name="d" id="d" min="1" max="60" step="1">
-                <input type="submit" value="Suchen">
-            </form>
-        </div>
-        <div class="card" id="city-select">
-            <form action="events.html">
-                <h3>Stadt:</h3>
-                <select name="city" id="city">
-                    <option value="berlin">Berlin</option>
-                </select>
-                <input type="submit" value="Suchen">
-            </form>
-        </div>
+    </div>
+    
+    <div class="card" id="distance-select">
+        <form action="events.html">
+            <h3>Distanz:</h3>
+            <label for="d"> Zwischen 1 - 60 in Kilometern</label>
+            <input type="number" name="d" id="d" min="1" max="60" step="1">
+            <input type="submit" value="Suchen">
+        </form>
+    </div>
+    <div class="card" id="city-select">
+        <form action="events.html">
+            <h3>Stadt:</h3>
+            <select name="city" id="city">
+                <option value="berlin">Berlin</option>
+            </select>
+            <input type="submit" value="Suchen">
+        </form>
     </div>
 
     <script src="js/events.js" async defer></script>
