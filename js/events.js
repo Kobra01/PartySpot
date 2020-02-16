@@ -176,7 +176,11 @@ function showEvents(events) {
         card.appendChild(date);
         card.appendChild(text);
 
-        content.insertBefore(card, loader);
+        if (last_position != 'unknown' && calcDistance(event.latitude, event.longitude) > distance_param) {
+            console.log('Skipped');
+        } else {
+            content.insertBefore(card, loader);
+        }
     }
     content.removeChild(loader);
 }
@@ -187,7 +191,7 @@ function showSettings() {
     setting.classList.add('btn');
     btn_info.classList.add('info')
     if (!city) {
-        btn_info.innerText = 'Distanz: ca. ' + distance_param + 'km';
+        btn_info.innerText = 'Distanz: ' + distance_param + 'km';
     } else {
         btn_info.innerText = 'Stadt: ' + city.charAt(0).toUpperCase() + city.slice(1);
     }
