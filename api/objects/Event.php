@@ -112,6 +112,8 @@ class Event{
                     AND
                         longitude BETWEEN :min_long AND :max_long
                     AND
+                        e.date > :datum
+                    AND
                         e.creator = c.id
                     ORDER BY
                         e.date, e.time';
@@ -119,11 +121,17 @@ class Event{
         // prepare the query
         $stmt = $this->conn->prepare($query);
 
+        $createTime = strtotime('-24 hours');
+        $timestamp = date('Y-m-d', $createTime);
+
+        $timestamp=htmlspecialchars(strip_tags($timestamp));
+
         // bind the values
         $stmt->bindParam(':min_lat', round($this->user_lat - $distanceInLatitude, 6));
         $stmt->bindParam(':max_lat', round($this->user_lat + $distanceInLatitude, 6));
         $stmt->bindParam(':min_long', round($this->user_long - $distanceInLongitude, 6));
         $stmt->bindParam(':max_long', round($this->user_long + $distanceInLongitude, 6));
+        $stmt->bindParam(':datum', $timestamp);
 
         // exit if execute failed
         if(!$stmt->execute()){
@@ -147,15 +155,24 @@ class Event{
                     WHERE
                         e.city = :city
                     AND
+                        e.date > :datum
+                    AND
                         e.creator = c.id
                     ORDER BY
                         e.date, e.time';
 
         // prepare the query
         $stmt = $this->conn->prepare($query);
+        
+        $createTime = strtotime('-24 hours');
+        $timestamp = date('Y-m-d', $createTime);
+
+        $timestamp=htmlspecialchars(strip_tags($timestamp));
+        $this->city=htmlspecialchars(strip_tags($this->city));
 
         // bind the values
         $stmt->bindParam(':city', $this->city);
+        $stmt->bindParam(':datum', $timestamp);
 
         // exit if execute failed
         if(!$stmt->execute()){
