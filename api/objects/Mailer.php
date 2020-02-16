@@ -7,7 +7,7 @@ class Mailer {
     private $mailer;
     private $table_name = "codes";
     private $email_max = "a.makro@web.de";
-    private $email_finn = "a.makro@web.de";
+    private $email_finn = "finndichgut@icloud.com";
 
     // object properties
     public $content;
@@ -25,7 +25,7 @@ class Mailer {
             //Recipients
             $this->mailer->setFrom('noreply@mks-software.de', 'noreply@mks-software.de');
             $this->mailer->addAddress($this->email_max);
-            // $this->mailer->addAddress($this->email_finn);
+            $this->mailer->addAddress($this->email_finn);
 
             $this->mailer->CharSet = 'UTF-8';
             $this->mailer->Encoding = 'base64';
