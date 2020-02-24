@@ -38,7 +38,7 @@ div {
 .logo {
     position: absolute;
     left: 50%;
-    top: 12%;
+    top: 18%;
     transform: translate(-50%, -25%);
     -ms-transform: translate(-50%, -25%);
     height: 192px;
@@ -46,7 +46,7 @@ div {
 
 .mid-block {
     position: absolute;
-    top: 50%;
+    top: 54%;
     left: 50%;
     transform: translate(-50%, -30%);
     -ms-transform: translate(-50%, -30%);
@@ -186,4 +186,18 @@ form input, form textarea, form select {
 form input:focus, form textarea:focus, form select:focus {
     outline: none;
     border: 2px solid var(--main-accent-color);
+}
+
+.impressum {
+    text-decoration: none;
+    display: block;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 10px);
+    -ms-transform: translate(-50%, 10px);
+    width: fit-content;
+    height: fit-content;
+    color: #999999;
+    letter-spacing: 2px;
 }
