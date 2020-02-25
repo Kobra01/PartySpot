@@ -134,6 +134,18 @@ div {
     font-size: 14px;
 }
 
+a.gohome p {
+    font-size: 14px;
+    text-align: center;
+    letter-spacing: .5px;
+}
+
+a.gohome h2 {
+    font-size: 26px;
+    text-align: center;
+    letter-spacing: .5px;
+}
+
 #overlay {
     position: fixed; /* Sit on top of the page content */
     display: none; /* Hidden by default */

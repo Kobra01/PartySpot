@@ -200,4 +200,5 @@ form input:focus, form textarea:focus, form select:focus {
     height: fit-content;
     color: #999999;
     letter-spacing: 2px;
+    font-size: 10px;
 }

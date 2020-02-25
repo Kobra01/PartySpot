@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-158617564-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'UA-158617564-1');
+    </script>
+    
+    <meta charset="UTF-8">
+    <meta name="author" content="mks-software.de">
+    <meta name="description" content="Finde alle Events, Partys und Veranstaltungen in deiner Nähe. Nutze dazu deinen Standort oder wähle direkt die Stadt aus.">
+    <meta name="keywords" content="party, berlin, feiern, club">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Partys, Events, Veranstaltungen in der Nähe. Alle sofort auf einem Blick. Finde deinen nächsten Party Spot.</title>
+    <link rel="stylesheet" href="css/start.css">
+
+    <!-- Icons -->
+    <!-- third-generation iPad with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icon-144.png">
+    <!-- iPhone with high-resolution Retina display: -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icon-114.png">
+    <!-- first- and second-generation iPad: 72-->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icon.png">
+    <!-- non-Retina iPhone, iPod Touch, and Android 2.1+ devices: 57 -->
+    <link rel="apple-touch-icon-precomposed" href="icon.png">
+    <!-- basic favicon -->
+    <link rel="icon" type="image/png" href="icon-96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="icon.png" sizes="32x32">
+</head>
+<body>
+    <div id="wrapper">
+        <img src="img/icon-192.png" alt="PartySpot Logo" class="logo">
+
+        <div class="mid-block">
+            <p>Wähle deine</p>
+            <button class="cta" onclick="cityChanging()">STADT</button>
+            <p>oder nutze deinen</p>
+            <a href="events.html" class="cta">STANDORT</a>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="submit.html"><p> Deine Party fehlt?<br>Reiche sie <i>hier</i> ein.</p></a>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" onclick="closeOverlay()">
+    </div>
+    
+    <div class="overlay-card" id="city-select">
+        <form action="events.html">
+            <h3>Stadt:</h3>
+            <select name="city" id="city">
+                <option value="berlin">Berlin</option>
+            </select>
+            <input type="submit" value="Suchen">
+        </form>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/start.js" async defer></script>
+</body>
+</html>
